@@ -5,8 +5,12 @@
 [![React 19](https://img.shields.io/badge/Frontend-React_19_%2B_Vite_%2B_TS-3b82f6.svg)](https://react.dev)
 [![Node.js Express](https://img.shields.io/badge/Backend-Node.js_Express_%2B_TS-10b981.svg)](https://expressjs.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg)](https://opensource.org/licenses/MIT)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-wexaai--2--kappa.vercel.app-emerald.svg)](https://wexaai-2-kappa.vercel.app/)
 
 A production-grade, graph-powered web application built for the **Wexa AI Technical Take-Home Assignment**. CareerGraph helps students and early-career developers discover realistic career trajectories, analyze skill gaps, explore multi-hop relationship pathways, and access tailored project and course recommendations powered by **CognoDB** and **openCypher**.
+
+**🌐 Live Application:** [https://wexaai-2-kappa.vercel.app/](https://wexaai-2-kappa.vercel.app/)  
+**📁 GitHub Repository:** [https://github.com/sanny1724/WEXAAI2.git](https://github.com/sanny1724/WEXAAI2.git)
 
 ---
 
