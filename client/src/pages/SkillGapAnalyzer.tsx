@@ -58,17 +58,21 @@ export function SkillGapAnalyzer({
         ApiService.getAlternativePivots(selectedRoleId)
       ]);
 
-      if (gapRes?.data) {
+      if (gapRes && gapRes.data) {
         setGapData(gapRes.data);
         setCypherInfo(gapRes.cypherQuery);
       }
-      if (pivotRes?.data?.pivots) {
+      if (pivotRes && pivotRes.data && Array.isArray(pivotRes.data.pivots)) {
         setPivots(pivotRes.data.pivots.slice(0, 3));
       } else {
         setPivots([]);
       }
     } catch (err: any) {
-      setError(err.message || 'Failed to compute skill gap graph traversal.');
+      console.warn('Skill gap load notice:', err);
+      const fallbackGap = await ApiService.getSkillGap(selectedRoleId, currentUser.currentSkillIds);
+      setGapData(fallbackGap.data);
+      setCypherInfo(fallbackGap.cypherQuery);
+      setPivots([]);
     } finally {
       setLoading(false);
     }

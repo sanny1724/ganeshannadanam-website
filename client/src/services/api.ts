@@ -226,10 +226,14 @@ RETURN role.title, skillDetails, dom ORDER BY size(skillDetails) DESC`,
       const readinessScore = Math.round((matchedSkills.length / Math.max(1, reqDetails.length)) * 100);
 
       const roadmap = missingSkills.map((missing, idx) => {
-        const sk = FALLBACK_SKILLS.find((s) => s.id === missing.id)!;
+        const sk = FALLBACK_SKILLS.find((s) => s.id === missing.id);
+        const name = sk?.name || missing.name || missing.id;
+        const diff = (sk?.difficulty || missing.difficulty || 'Beginner') as Skill['difficulty'];
+        const cat = (sk?.category || missing.category || 'Programming') as Skill['category'];
+        const skillObj: Skill = sk || { id: missing.id, name, category: cat, difficulty: diff, demandScore: 90 };
         return {
           step: idx + 1,
-          skill: sk || { id: missing.id, name: missing.name, category: missing.category, difficulty: missing.difficulty, demandScore: 90 },
+          skill: skillObj,
           importance: missing.importance,
           reason: `Foundational prerequisite directly required for ${role.title}`,
           prerequisitesMet: true,
@@ -237,9 +241,9 @@ RETURN role.title, skillDetails, dom ORDER BY size(skillDetails) DESC`,
           courses: [
             {
               id: `crs-${missing.id}`,
-              title: `Mastering ${missing.name}`,
+              title: `Mastering ${name}`,
               provider: 'DeepLearning.AI',
-              level: missing.difficulty,
+              level: diff,
               rating: 4.9,
               durationHours: 25,
               url: 'https://coursera.org'
