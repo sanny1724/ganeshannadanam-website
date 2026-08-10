@@ -1,0 +1,30 @@
+{
+  "name": "careergraph",
+  "version": "1.0.0",
+  "description": "CareerGraph — Intelligent Career & Skill Relationship Explorer powered by CognoDB and openCypher",
+  "main": "server/dist/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd server && npm run build && cd ../client && npm run build",
+    "seed": "cd server && npm run seed",
+    "start": "cd server && npm start"
+  },
+  "keywords": [
+    "cognodb",
+    "neo4j",
+    "graph-database",
+    "opencypher",
+    "career-recommendations",
+    "skill-gap-analysis",
+    "react",
+    "typescript",
+    "express"
+  ],
+  "author": "CareerGraph Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
