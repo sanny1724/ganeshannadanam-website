@@ -39,12 +39,15 @@ export function App() {
         ApiService.getTechnologies()
       ]);
 
-      setUsers(usersData);
-      setCurrentUser(usersData[0] || null);
-      setSkills(skillsData);
-      setJobRoles(rolesData);
-      setDomains(domainsData);
-      setTechnologies(techsData);
+      const validUsers = Array.isArray(usersData) && usersData.length > 0 ? usersData : [];
+      setUsers(validUsers);
+      if (validUsers.length > 0) {
+        setCurrentUser(validUsers[0]);
+      }
+      setSkills(Array.isArray(skillsData) ? skillsData : []);
+      setJobRoles(Array.isArray(rolesData) ? rolesData : []);
+      setDomains(Array.isArray(domainsData) ? domainsData : []);
+      setTechnologies(Array.isArray(techsData) ? techsData : []);
     } catch (err: any) {
       setError(err.message || 'Failed to connect to CareerGraph backend.');
     } finally {
