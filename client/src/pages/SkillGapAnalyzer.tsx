@@ -58,9 +58,15 @@ export function SkillGapAnalyzer({
         ApiService.getAlternativePivots(selectedRoleId)
       ]);
 
-      setGapData(gapRes.data);
-      setCypherInfo(gapRes.cypherQuery);
-      setPivots(pivotRes.data.pivots.slice(0, 3));
+      if (gapRes?.data) {
+        setGapData(gapRes.data);
+        setCypherInfo(gapRes.cypherQuery);
+      }
+      if (pivotRes?.data?.pivots) {
+        setPivots(pivotRes.data.pivots.slice(0, 3));
+      } else {
+        setPivots([]);
+      }
     } catch (err: any) {
       setError(err.message || 'Failed to compute skill gap graph traversal.');
     } finally {

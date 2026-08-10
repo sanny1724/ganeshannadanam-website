@@ -39,8 +39,10 @@ export function Dashboard({ currentUser, skills, onNavigate }: DashboardProps) {
 
       // Fetch matching careers
       const matchRes = await ApiService.getCareerRecommendations(currentUser.currentSkillIds);
-      setRecommendations(matchRes.recommendations);
-      setCypherQueryInfo(matchRes.cypherQuery);
+      if (matchRes?.recommendations) {
+        setRecommendations(matchRes.recommendations);
+        setCypherQueryInfo(matchRes.cypherQuery);
+      }
 
       // Fetch skill gap for target role
       if (currentUser.targetRoleId) {
@@ -48,7 +50,9 @@ export function Dashboard({ currentUser, skills, onNavigate }: DashboardProps) {
           currentUser.targetRoleId,
           currentUser.currentSkillIds
         );
-        setTargetGapData(gapRes.data);
+        if (gapRes?.data) {
+          setTargetGapData(gapRes.data);
+        }
       }
     } catch (err: any) {
       setError(err.message || 'Failed to load graph dashboard metrics.');

@@ -28,8 +28,10 @@ export function CareerPathExplorer({ skills }: { skills: Skill[] }) {
       setLoading(true);
       setError(null);
       const res = await ApiService.getCareerPaths(selectedSkillId);
-      setPathData(res.data);
-      setCypherInfo(res.cypherQuery);
+      if (res?.data) {
+        setPathData(res.data);
+        setCypherInfo(res.cypherQuery);
+      }
     } catch (err: any) {
       setError(err.message || 'Failed to discover career pathways.');
     } finally {

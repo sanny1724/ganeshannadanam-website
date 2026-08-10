@@ -52,8 +52,10 @@ export function ProjectsCourses({ currentUser, jobRoles, initialRoleId }: Projec
         selectedRoleId,
         currentUser.currentSkillIds
       );
-      setData(res.data);
-      setCypherQueries(res.cypherQueries);
+      if (res?.data) {
+        setData(res.data);
+        setCypherQueries(res.cypherQueries || []);
+      }
     } catch (err: any) {
       setError(err.message || 'Failed to fetch graph recommendations.');
     } finally {
