@@ -1,29 +1,28 @@
 {
-  "name": "careergraph",
+  "name": "ai-desktop-assistant",
   "version": "1.0.0",
-  "description": "CareerGraph — Intelligent Career & Skill Relationship Explorer powered by CognoDB and openCypher",
+  "description": "AI Desktop Assistant — Autonomous Job Hunter Bot & Intelligent Email Monitor for Laptop",
   "main": "server/dist/server.js",
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev",
-    "build": "cd client && npm install && npm run build",
-    "build:server": "cd server && npm install && npm run build",
-    "seed": "cd server && npm run seed",
-    "start": "cd server && npm start"
+    "build": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "start": "cd server && npm start",
+    "startup:enable": "node scripts/register-windows-startup.js",
+    "startup:disable": "node scripts/unregister-windows-startup.js"
   },
   "keywords": [
-    "cognodb",
-    "neo4j",
-    "graph-database",
-    "opencypher",
-    "career-recommendations",
-    "skill-gap-analysis",
-    "react",
-    "typescript",
-    "express"
+    "ai-agent",
+    "job-automation",
+    "email-monitor",
+    "windows-notifications",
+    "copilot",
+    "playwright"
   ],
-  "author": "CareerGraph Team",
+  "author": "AI Desktop Assistant",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^9.1.2"

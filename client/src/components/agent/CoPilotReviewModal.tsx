@@ -1,0 +1,151 @@
+import React, { useState } from 'react';
+import { JobItem, AgentApiService } from '../../services/agentApi';
+import { X, CheckCircle, Sparkles, Send, Building, MapPin, ExternalLink, MessageSquare } from 'lucide-react';
+
+interface Props {
+  job: JobItem | null;
+  onClose: () => void;
+  onSubmitted: (updated: JobItem) => void;
+}
+
+export function CoPilotReviewModal({ job, onClose, onSubmitted }: Props) {
+  if (!job) return null;
+
+  const [coverLetter, setCoverLetter] = useState(job.coverLetter || '');
+  const [questions, setQuestions] = useState(job.questionsAnswered || []);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleAnswerChange = (index: number, newAnswer: string) => {
+    const updated = [...questions];
+    updated[index].answer = newAnswer;
+    setQuestions(updated);
+  };
+
+  const handleApproveAndSubmit = async () => {
+    try {
+      setSubmitting(true);
+      const updated = await AgentApiService.updateJob(job.id, {
+        status: 'applied',
+        coverLetter,
+        questionsAnswered: questions,
+        appliedAt: new Date().toISOString(),
+        notes: 'Verified and submitted via Co-Pilot Review.'
+      });
+      onSubmitted(updated);
+      onClose();
+    } catch (err) {
+      console.error('Failed to submit application:', err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
+      <div className="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="p-6 border-b border-slate-800 flex items-start justify-between bg-slate-950/50">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
+                <Sparkles className="w-3 h-3" /> Co-Pilot Ready
+              </span>
+              <span className="text-xs text-slate-400 font-mono">{job.platform}</span>
+            </div>
+            <h2 className="text-xl font-bold text-white tracking-tight">{job.jobTitle}</h2>
+            <div className="flex items-center gap-4 text-xs text-slate-400 mt-1">
+              <span className="flex items-center gap-1"><Building className="w-3.5 h-3.5 text-indigo-400" /> {job.company}</span>
+              <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-cyan-400" /> {job.location}</span>
+              <span className="text-indigo-400 font-semibold">{job.matchScore}% Skill Match</span>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Body Content */}
+        <div className="p-6 overflow-y-auto space-y-6 flex-1 text-sm text-slate-300">
+          {/* AI Pre-filled Questions */}
+          {questions.length > 0 && (
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-3 flex items-center gap-2">
+                <MessageSquare className="w-4 h-4" /> AI Auto-Filled Recruiter Questions
+              </h3>
+              <div className="space-y-3">
+                {questions.map((q, idx) => (
+                  <div key={idx} className="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                    <label className="block text-xs font-medium text-slate-300 mb-1.5">{q.question}</label>
+                    <input
+                      type="text"
+                      value={q.answer}
+                      onChange={(e) => handleAnswerChange(idx, e.target.value)}
+                      className="w-full bg-slate-900 border border-slate-700/80 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Cover Letter */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-indigo-400">
+                Tailored Cover Letter
+              </h3>
+              <span className="text-[11px] text-slate-400">Editable before submission</span>
+            </div>
+            <textarea
+              rows={7}
+              value={coverLetter}
+              onChange={(e) => setCoverLetter(e.target.value)}
+              className="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl p-3.5 text-xs text-slate-200 font-sans leading-relaxed focus:outline-none focus:border-indigo-500"
+              placeholder="Cover letter generated by AI..."
+            />
+          </div>
+
+          {/* Links & Safety notes */}
+          <div className="bg-indigo-950/30 border border-indigo-500/20 rounded-xl p-4 flex items-center justify-between">
+            <div>
+              <p className="text-xs text-indigo-200 font-medium">Verify portal posting:</p>
+              <p className="text-[11px] text-slate-400 truncate max-w-sm">{job.url}</p>
+            </div>
+            <a
+              href={job.url}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-indigo-300 flex items-center gap-1.5 transition"
+            >
+              Open Job <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between">
+          <button
+            onClick={onClose}
+            className="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white transition"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleApproveAndSubmit}
+            disabled={submitting}
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white text-xs font-semibold shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition disabled:opacity-50"
+          >
+            {submitting ? 'Submitting...' : (
+              <>
+                <Send className="w-4 h-4" /> Approve & Submit Application
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

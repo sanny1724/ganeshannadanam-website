@@ -25,6 +25,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# System & OS files
-.DS_Store
-Thumbs.db
+# Browser Session & Screenshots
+server/data/browser_session_naukri*
+server/data/screenshots/
+server/src/scratch_apply_naukri.ts
