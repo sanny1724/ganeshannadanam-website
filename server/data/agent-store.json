@@ -183,6 +183,40 @@
   },
   "jobs": [
     {
+      "id": "4f4214189fddbc8a",
+      "jobTitle": "React & Node.js Developer",
+      "company": "Zoho Corporation",
+      "location": "Chennai / Hyderabad",
+      "url": "https://in.indeed.com/jobs?q=Zoho%20Corporation%20React%20%26%20Node.js%20Developer&l=Hyderabad",
+      "platform": "Indeed",
+      "status": "DISCOVERED",
+      "applicationMode": "ASSISTED_APPLY",
+      "matchScore": 77,
+      "matchDetails": {
+        "match_score": 77,
+        "matched_skills": [
+          "Java",
+          "React",
+          "Node.js",
+          "SQL"
+        ],
+        "missing_skills": [
+          "Advanced Kubernetes"
+        ],
+        "strengths": [
+          "Strong hands-on alignment in core stack: Java, React, Node.js",
+          "Relevant educational background and project experience"
+        ],
+        "weaknesses": [
+          "None detected"
+        ],
+        "recommendation": "MEDIUM_PRIORITY"
+      },
+      "jobDescription": "Position: React & Node.js Developer at Zoho Corporation\nLocation: Chennai / Hyderabad\nPlatform Source: Indeed\nCompensation: ₹12-18 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using Java, React, Node.js.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in Java, React, Node.js, SQL.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
+      "dateDiscovered": "2026-09-15T09:15:00.250Z",
+      "notes": "Compensation: ₹12-18 LPA. Discovered via Indeed Job Discovery Agent."
+    },
+    {
       "id": "4366880e0de9ea58",
       "jobTitle": "Full Stack Engineer",
       "company": "Infinity Learn",
@@ -360,9 +394,9 @@
       "platform": "LinkedIn",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 81,
+      "matchScore": 83,
       "matchDetails": {
-        "match_score": 81,
+        "match_score": 83,
         "matched_skills": [
           "TypeScript",
           "Node.js",
@@ -382,7 +416,7 @@
         "recommendation": "MEDIUM_PRIORITY"
       },
       "jobDescription": "Position: Software Engineer at Postman\nLocation: Bengaluru / Remote\nPlatform Source: LinkedIn\nCompensation: ₹22-30 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using TypeScript, Node.js, APIs.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in TypeScript, Node.js, APIs, Docker.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-09-15T08:45:00.196Z",
+      "dateDiscovered": "2026-09-15T09:15:00.192Z",
       "notes": "Compensation: ₹22-30 LPA. Discovered via LinkedIn Job Discovery Agent."
     },
     {
@@ -449,7 +483,7 @@
         "recommendation": "LOW_PRIORITY"
       },
       "jobDescription": "Position: Full Stack Engineer at Jio Platforms\nLocation: Hyderabad / Mumbai\nPlatform Source: Naukri\nCompensation: ₹14-20 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using Python, Cloud APIs, React.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in Python, Cloud APIs, React, Docker.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-09-12T08:15:00.364Z",
+      "dateDiscovered": "2026-09-15T09:15:00.148Z",
       "notes": "Compensation: ₹14-20 LPA. Discovered via Naukri Job Discovery Agent."
     },
     {
@@ -48358,6 +48392,41 @@
   },
   "logs": [
     {
+      "id": "audit-1789463719879-rpy4q",
+      "timestamp": "2026-09-15T09:15:19.879Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789463701259-o6a3w",
+      "timestamp": "2026-09-15T09:15:01.259Z",
+      "agent": "notification",
+      "action": "Desktop notification delivered: \"🤖 Autonomous Agent Applied (3 Jobs)\"",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789463700293-dr0xj",
+      "timestamp": "2026-09-15T09:15:00.293Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Discovered & normalized 3 deduplicated opportunities.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789463700104-0gt80",
+      "timestamp": "2026-09-15T09:15:00.104Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Scouting [Naukri, LinkedIn, Indeed, Glassdoor] for \"Full Stack Engineer, Software Engineer, React & Node.js Developer, AI / Web Application Developer\" in Hyderabad / Bengaluru / Remote",
+      "result": "RUNNING"
+    },
+    {
+      "id": "audit-1789463700056-iccyt",
+      "timestamp": "2026-09-15T09:15:00.056Z",
+      "agent": "job",
+      "action": "[Autonomous Daemon] Scanning for new software engineer roles silently in background...",
+      "result": "SUCCESS"
+    },
+    {
       "id": "audit-1789463452097-ai86v",
       "timestamp": "2026-09-15T09:10:52.097Z",
       "agent": "notification",
@@ -51556,36 +51625,6 @@
       "timestamp": "2026-08-11T05:56:11.945Z",
       "type": "job",
       "message": "Discovered new job opportunity: Full Stack Engineer - CRM Suite at Swiggy Tech"
-    },
-    {
-      "id": "log-1786427771694-jt27",
-      "timestamp": "2026-08-11T05:56:11.694Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [Naukri] for: \"Full Stack Engineer - CRM Suite\" in Chennai / Hyderabad..."
-    },
-    {
-      "id": "log-1786427771587-83wo",
-      "timestamp": "2026-08-11T05:56:11.587Z",
-      "type": "job",
-      "message": "Updated job status for Software Development Engineer: applied"
-    },
-    {
-      "id": "log-1786427771356-tbbn",
-      "timestamp": "2026-08-11T05:56:11.356Z",
-      "type": "job",
-      "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427771277-h8rb",
-      "timestamp": "2026-08-11T05:56:11.277Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Software Development Engineer at Jio Platforms"
-    },
-    {
-      "id": "log-1786427771121-37ai",
-      "timestamp": "2026-08-11T05:56:11.121Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [Indeed] for: \"Software Development Engineer\" in Mumbai / Remote..."
     }
   ]
 }
