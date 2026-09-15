@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { annadanamApi } from '../services/annadanamApi';
 import { Annadanam } from '../types/annadanam';
 import { AnnadanamCard } from '../components/AnnadanamCard';
+import { LocationPickerMap } from '../components/LocationPickerMap';
 import { MapPin, Calendar, Clock, CheckCircle, ArrowLeft, PlusCircle, AlertCircle, Compass } from 'lucide-react';
 
 interface GivePageProps {
@@ -292,23 +293,33 @@ export const GivePage: React.FC<GivePageProps> = ({ onNavigate }) => {
                 placeholder="e.g. Near Remedy Hospital, Road No 1, KPHB"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-hidden text-sm font-medium text-stone-900 bg-stone-50/50"
               />
-              
-              {/* Optional GPS Location Pin */}
-              <div className="mt-2 flex items-center justify-between gap-2">
-                <button
-                  type="button"
-                  onClick={handleDetectLocation}
-                  disabled={isDetectingLocation}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-700 hover:text-orange-900 bg-orange-50 border border-orange-200/80 px-2.5 py-1.5 rounded-lg active:scale-95 transition-all cursor-pointer"
-                >
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>{isDetectingLocation ? 'Detecting GPS...' : '📍 Use Current GPS Pin'}</span>
-                </button>
-                {locationStatus && (
-                  <span className="text-[11px] text-stone-500 font-medium truncate max-w-[200px]">
-                    {locationStatus}
-                  </span>
-                )}
+
+              {/* Interactive Visual Map & Landmark Finder */}
+              <div className="mt-2">
+                <div className="text-xs font-bold text-stone-700 mb-1 flex items-center justify-between">
+                  <span>📍 Set Exact Location on Map</span>
+                  {latitude && longitude && (
+                    <span className="text-[11px] font-mono text-emerald-700 font-bold">
+                      {latitude.toFixed(4)}, {longitude.toFixed(4)}
+                    </span>
+                  )}
+                </div>
+                <LocationPickerMap
+                  initialLat={latitude}
+                  initialLng={longitude}
+                  initialCity={city === 'Other' ? customCity : city}
+                  onLocationSelect={(data) => {
+                    setLatitude(data.latitude);
+                    setLongitude(data.longitude);
+                    if (data.address && !address) {
+                      setAddress(data.address);
+                    }
+                    if (data.area && !area) {
+                      setArea(data.area);
+                    }
+                    setLocationStatus(`📍 Pin Placed (${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)})`);
+                  }}
+                />
               </div>
             </div>
 
