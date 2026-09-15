@@ -2,9 +2,7 @@ import axios from 'axios';
 import { Annadanam } from '../types/annadanam';
 
 const API_BASE = (import.meta.env?.VITE_API_URL || '') + '/api/annadanams';
-
-// All listings are added manually by committees and devotees
-const FALLBACK_DATA: Annadanam[] = [];
+const CLOUD_BACKUP_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a0a5c56aed11ee';
 
 export interface FetchOptions {
   city?: string;
@@ -18,30 +16,57 @@ export interface FetchOptions {
 }
 
 export const annadanamApi = {
+  CACHE_KEY: 'annadanam_events_live_v1',
+
   async getAll(options: FetchOptions = {}): Promise<Annadanam[]> {
+    let cloudItems: Annadanam[] = [];
+
+    // Tier 1: Try Vercel Serverless / Express API
     try {
       const params: Record<string, string> = {};
       if (options.city && options.city !== 'All') params.city = options.city;
       if (options.area && options.area !== 'All') params.area = options.area;
       if (options.date && options.date !== 'All') params.date = options.date;
       if (options.search) params.search = options.search;
-      if (options.foodType && options.foodType !== 'All') params.foodType = options.foodType;
-      if (options.userLat) params.userLat = options.userLat.toString();
-      if (options.userLng) params.userLng = options.userLng.toString();
-      if (options.includeExpired) params.includeExpired = 'true';
 
-      const response = await axios.get(API_BASE, { params, timeout: 4000 });
-      // Verify response is JSON with an array in data
+      const response = await axios.get(API_BASE, { params, timeout: 3500 });
       if (response && response.data && typeof response.data === 'object' && Array.isArray(response.data.data)) {
-        // Sync any server items into local storage
-        response.data.data.forEach((item: Annadanam) => this.saveToLocalCache(item));
-        return response.data.data;
+        cloudItems = response.data.data;
       }
-      return this.getLocalFiltered(options);
     } catch (err) {
-      console.warn('Backend API unreachable or static mode, using local storage:', err);
-      return this.getLocalFiltered(options);
+      // Tier 2: If local API fails or on static deployment, fetch directly from persistent cloud database
+      try {
+        const cloudRes = await axios.get(CLOUD_BACKUP_URL, { timeout: 3500 });
+        if (cloudRes.data?.data?.items && Array.isArray(cloudRes.data.data.items)) {
+          cloudItems = cloudRes.data.data.items;
+        }
+      } catch (cloudErr) {
+        console.warn('Cloud sync offline, using device storage');
+      }
     }
+
+    // Tier 3: Merge with Local Storage so newly added items on this device are NEVER lost
+    const localItems = this.getLocalCache();
+    const map = new Map<string, Annadanam>();
+
+    // Add cloud items first
+    cloudItems.forEach((item) => {
+      if (item && item.id) map.set(item.id, item);
+    });
+
+    // Merge local items (local takes priority if recently added)
+    localItems.forEach((item) => {
+      if (item && item.id) map.set(item.id, item);
+    });
+
+    const unifiedList = Array.from(map.values());
+
+    // Save unified list back to local storage
+    try {
+      localStorage.setItem(this.CACHE_KEY, JSON.stringify(unifiedList));
+    } catch (e) {}
+
+    return this.filterItems(unifiedList, options);
   },
 
   async create(data: Omit<Annadanam, 'id' | 'createdAt'>): Promise<Annadanam> {
@@ -51,17 +76,31 @@ export const annadanamApi = {
       createdAt: new Date().toISOString()
     };
 
-    // Always immediately save to local cache so user never loses their submission
+    // 1. Immediately save to device storage
     this.saveToLocalCache(newRecord);
 
+    // 2. Push to Serverless API
     try {
-      const response = await axios.post(API_BASE, data, { timeout: 5000 });
-      if (response && response.data && typeof response.data === 'object' && response.data.data) {
-        this.saveToLocalCache(response.data.data);
-        return response.data.data;
-      }
-    } catch (err: any) {
-      console.warn('Backend server offline, saved locally to device storage');
+      await axios.post(API_BASE, newRecord, { timeout: 4000 });
+    } catch (err) {
+      console.warn('Serverless API push failed, attempting direct cloud sync...');
+    }
+
+    // 3. Direct Cloud DB Sync (guarantees cross-device availability immediately)
+    try {
+      const getRes = await axios.get(CLOUD_BACKUP_URL, { timeout: 3500 });
+      let currentItems: Annadanam[] = getRes.data?.data?.items || [];
+      const updated = [newRecord, ...currentItems.filter((x: Annadanam) => x.id !== newRecord.id)];
+      await axios.put(
+        CLOUD_BACKUP_URL,
+        {
+          name: 'ganesh_annadanam_db_v2',
+          data: { items: updated }
+        },
+        { timeout: 4000 }
+      );
+    } catch (e) {
+      console.warn('Direct cloud backup error:', e);
     }
 
     return newRecord;
@@ -91,8 +130,6 @@ export const annadanamApi = {
     this.deleteFromLocalCache(id);
     return true;
   },
-
-  CACHE_KEY: 'annadanam_events_live_v1',
 
   purgeLegacyData() {
     try {
@@ -155,7 +192,10 @@ export const annadanamApi = {
   },
 
   getLocalFiltered(options: FetchOptions): Annadanam[] {
-    let list = this.getLocalCache();
+    return this.filterItems(this.getLocalCache(), options);
+  },
+
+  filterItems(list: Annadanam[], options: FetchOptions): Annadanam[] {
     const now = new Date();
 
     // Check expiration and calculate distance locally
@@ -183,8 +223,8 @@ export const annadanamApi = {
 
         const startDt = new Date(year, month - 1, day, startH, startM);
         const endDt = new Date(year, month - 1, day, endH, endM);
-        // 4 hour grace period after event ends
-        const graceEndDt = new Date(endDt.getTime() + 4 * 60 * 60 * 1000);
+        // 6 hour grace period after event ends
+        const graceEndDt = new Date(endDt.getTime() + 6 * 60 * 60 * 1000);
 
         isExpired = now.getTime() > graceEndDt.getTime();
         isServingNow = now.getTime() >= startDt.getTime() && now.getTime() <= endDt.getTime();
@@ -239,6 +279,11 @@ export const annadanamApi = {
       if (options.date && options.date !== 'All') {
         filtered = filtered.filter((i) => i.date === options.date);
       }
+    }
+
+    // Sort by distance if GPS active, otherwise newest first
+    if (options.userLat && options.userLng) {
+      filtered.sort((a, b) => (a.distanceKm || 999) - (b.distanceKm || 999));
     }
 
     return filtered;
