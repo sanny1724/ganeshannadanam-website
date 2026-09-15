@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import agentRouter from './routes/agentRoutes.js';
 import apiRouter from './routes/api.js';
+import annadanamRouter from './routes/annadanamRoutes.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { autonomousDaemonService } from './services/autonomousDaemonService.js';
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Mount REST APIs
+app.use('/api/annadanams', annadanamRouter);
 app.use('/api/agent', agentRouter);
 app.use('/api', apiRouter);
 

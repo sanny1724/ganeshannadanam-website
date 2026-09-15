@@ -1,45 +1,51 @@
-import React, { useState } from 'react';
-import { Layout } from './components/Layout';
-import { AgentControlCenter } from './components/agent/AgentControlCenter';
-import { JobHunterView } from './components/agent/JobHunterView';
-import { ApplicationKanbanView } from './components/agent/ApplicationKanbanView';
-import { EmailRadarView } from './components/agent/EmailRadarView';
-import { AIAssistantChatView } from './components/agent/AIAssistantChatView';
-import { ProfileVaultView } from './components/agent/ProfileVaultView';
-import { AgentSettingsView } from './components/agent/AgentSettingsView';
+import React, { useState, useEffect } from 'react';
+import { Navbar } from './components/Navbar';
+import { HomePage } from './pages/HomePage';
+import { GivePage } from './pages/GivePage';
+import { TakePage } from './pages/TakePage';
+import { AdminPage } from './pages/AdminPage';
+
+type Page = 'home' | 'give' | 'take' | 'admin';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<string>('agent');
+  const [currentPage, setCurrentPage] = useState<Page>(() => {
+    const hash = window.location.hash.replace('#/', '').replace('#', '');
+    if (hash === 'give' || hash === 'take' || hash === 'admin') return hash as Page;
+    return 'home';
+  });
 
-  const handleNavigate = (tab: string) => {
-    if (tab === 'jobs') {
-      setActiveTab('agent-jobs');
-    } else if (tab === 'kanban') {
-      setActiveTab('agent-kanban');
-    } else if (tab === 'emails') {
-      setActiveTab('agent-emails');
-    } else if (tab === 'ai-chat') {
-      setActiveTab('agent-ai-chat');
-    } else if (tab === 'profile') {
-      setActiveTab('agent-profile');
-    } else if (tab === 'settings') {
-      setActiveTab('agent-settings');
-    } else {
-      setActiveTab(tab);
-    }
+  // Keep URL hash in sync for mobile back/forward navigation
+  const handleNavigate = (page: Page) => {
+    setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : `/${page}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#/', '').replace('#', '');
+      if (hash === 'give' || hash === 'take' || hash === 'admin') {
+        setCurrentPage(hash as Page);
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
-    <Layout activeTab={activeTab} setActiveTab={handleNavigate}>
-      {activeTab === 'agent' && <AgentControlCenter onNavigate={handleNavigate} />}
-      {activeTab === 'agent-jobs' && <JobHunterView />}
-      {activeTab === 'agent-kanban' && <ApplicationKanbanView />}
-      {activeTab === 'agent-emails' && <EmailRadarView />}
-      {activeTab === 'agent-ai-chat' && <AIAssistantChatView />}
-      {activeTab === 'agent-profile' && <ProfileVaultView />}
-      {activeTab === 'agent-settings' && <AgentSettingsView />}
-    </Layout>
+    <div className="min-h-screen bg-[#FFFDF9] text-stone-900 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-950">
+      <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
+
+      <main className="flex-1 w-full pb-12">
+        {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
+        {currentPage === 'give' && <GivePage onNavigate={handleNavigate} />}
+        {currentPage === 'take' && <TakePage onNavigate={handleNavigate} />}
+        {currentPage === 'admin' && <AdminPage onNavigate={handleNavigate} />}
+      </main>
+    </div>
   );
 }
 
