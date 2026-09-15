@@ -1,12 +1,12 @@
 services:
   # Backend API Web Service
   - type: web
-    name: careergraph-api
+    name: ganeshannadanam-api
     env: node
     plan: free
     rootDir: server
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: npm install
+    startCommand: npx tsx src/server.ts
     envVars:
       - key: PORT
         value: 5001
@@ -14,16 +14,10 @@ services:
         value: production
       - key: CLIENT_URL
         value: "*"
-      - key: COGNODB_URI
-        sync: false
-      - key: COGNODB_USERNAME
-        sync: false
-      - key: COGNODB_PASSWORD
-        sync: false
 
   # Frontend Static Site
   - type: web
-    name: careergraph-client
+    name: ganeshannadanam-website
     env: static
     plan: free
     rootDir: client

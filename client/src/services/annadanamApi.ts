@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Annadanam } from '../types/annadanam';
 
-const API_BASE = '/api/annadanams';
+const API_BASE = (import.meta.env?.VITE_API_URL || '') + '/api/annadanams';
 
 // All listings are added manually by committees and devotees
 const FALLBACK_DATA: Annadanam[] = [];
