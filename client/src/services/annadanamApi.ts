@@ -87,13 +87,22 @@ export const annadanamApi = {
     return true;
   },
 
+  CACHE_KEY: 'annadanam_events_live_v1',
+
+  purgeLegacyData() {
+    try {
+      localStorage.removeItem('local_annadanams');
+      localStorage.removeItem('annadanams_cache');
+    } catch (e) {}
+  },
+
   updateLocalCache(id: string, updates: Partial<Annadanam>) {
     try {
       const cached = this.getLocalCache();
       const idx = cached.findIndex(x => x.id === id);
       if (idx !== -1) {
         cached[idx] = { ...cached[idx], ...updates };
-        localStorage.setItem('local_annadanams', JSON.stringify(cached));
+        localStorage.setItem(this.CACHE_KEY, JSON.stringify(cached));
       }
     } catch (e) {}
   },
@@ -101,28 +110,39 @@ export const annadanamApi = {
   deleteFromLocalCache(id: string) {
     try {
       const cached = this.getLocalCache().filter(x => x.id !== id);
-      localStorage.setItem('local_annadanams', JSON.stringify(cached));
+      localStorage.setItem(this.CACHE_KEY, JSON.stringify(cached));
     } catch (e) {}
   },
 
   saveToLocalCache(item: Annadanam) {
     try {
       const cached = this.getLocalCache();
-      cached.unshift(item);
-      localStorage.setItem('local_annadanams', JSON.stringify(cached));
+      // Avoid duplicates
+      const filtered = cached.filter(x => x.id !== item.id);
+      filtered.unshift(item);
+      localStorage.setItem(this.CACHE_KEY, JSON.stringify(filtered));
     } catch (e) {
       console.error('Local cache save failed', e);
     }
   },
 
   getLocalCache(): Annadanam[] {
+    this.purgeLegacyData();
     try {
-      const stored = localStorage.getItem('local_annadanams');
+      const stored = localStorage.getItem(this.CACHE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed)) {
-          // Filter out any legacy dummy records
-          return parsed.filter((item: Annadanam) => !item.id?.startsWith('anna-00'));
+          // Remove any legacy sample records
+          return parsed.filter((item: Annadanam) => {
+            if (!item || !item.committeeName) return false;
+            if (item.id?.startsWith('anna-0')) return false;
+            const name = item.committeeName.toLowerCase();
+            if (name.includes('balapur ganesh utsav samithi') && item.id === 'anna-002') return false;
+            if (name.includes('sri ganesh utsav committee') && item.id === 'anna-001') return false;
+            if (name.includes('khairatabad bada ganesh') && item.id === 'anna-003') return false;
+            return true;
+          });
         }
       }
     } catch (e) {}
