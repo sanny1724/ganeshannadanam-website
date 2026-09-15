@@ -635,9 +635,9 @@
       "platform": "Naukri",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 80,
+      "matchScore": 78,
       "matchDetails": {
-        "match_score": 80,
+        "match_score": 78,
         "matched_skills": [
           "Java",
           "React",
@@ -657,7 +657,7 @@
         "recommendation": "MEDIUM_PRIORITY"
       },
       "jobDescription": "Position: Full Stack Engineer at Zoho Corporation\nLocation: Chennai / Hyderabad\nPlatform Source: Naukri\nCompensation: ₹12-18 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using Java, React, Node.js.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in Java, React, Node.js, SQL.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-08-11T09:30:00.840Z",
+      "dateDiscovered": "2026-09-15T09:30:00.103Z",
       "notes": "Compensation: ₹12-18 LPA. Discovered via Naukri Job Discovery Agent."
     },
     {
@@ -703,9 +703,9 @@
       "platform": "Indeed",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 64,
+      "matchScore": 61,
       "matchDetails": {
-        "match_score": 64,
+        "match_score": 61,
         "matched_skills": [
           "TypeScript",
           "React",
@@ -724,7 +724,7 @@
         "recommendation": "LOW_PRIORITY"
       },
       "jobDescription": "Position: React & Node.js Developer at Swiggy\nLocation: Bengaluru / Hyderabad\nPlatform Source: Indeed\nCompensation: ₹18-25 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using TypeScript, React, FastAPI.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in TypeScript, React, FastAPI, Microservices.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-08-11T09:00:00.658Z",
+      "dateDiscovered": "2026-09-15T09:30:00.199Z",
       "notes": "Compensation: ₹18-25 LPA. Discovered via Indeed Job Discovery Agent."
     },
     {
@@ -802,9 +802,9 @@
       "platform": "LinkedIn",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 61,
+      "matchScore": 63,
       "matchDetails": {
-        "match_score": 61,
+        "match_score": 63,
         "matched_skills": [
           "TypeScript",
           "React",
@@ -823,7 +823,7 @@
         "recommendation": "LOW_PRIORITY"
       },
       "jobDescription": "Position: Software Engineer at Swiggy\nLocation: Bengaluru / Hyderabad\nPlatform Source: LinkedIn\nCompensation: ₹18-25 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using TypeScript, React, FastAPI.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in TypeScript, React, FastAPI, Microservices.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-08-11T09:15:00.603Z",
+      "dateDiscovered": "2026-09-15T09:30:00.157Z",
       "notes": "Compensation: ₹18-25 LPA. Discovered via LinkedIn Job Discovery Agent."
     },
     {
@@ -48392,6 +48392,48 @@
   },
   "logs": [
     {
+      "id": "audit-1789464601286-vgqg3",
+      "timestamp": "2026-09-15T09:30:01.286Z",
+      "agent": "notification",
+      "action": "Desktop notification delivered: \"🤖 Autonomous Agent Applied (3 Jobs)\"",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789464600241-e93vb",
+      "timestamp": "2026-09-15T09:30:00.241Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Discovered & normalized 3 deduplicated opportunities.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789464600059-73jne",
+      "timestamp": "2026-09-15T09:30:00.059Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Scouting [Naukri, LinkedIn, Indeed, Glassdoor] for \"Full Stack Engineer, Software Engineer, React & Node.js Developer, AI / Web Application Developer\" in Hyderabad / Bengaluru / Remote",
+      "result": "RUNNING"
+    },
+    {
+      "id": "audit-1789464600009-z39c5",
+      "timestamp": "2026-09-15T09:30:00.009Z",
+      "agent": "job",
+      "action": "[Autonomous Daemon] Scanning for new software engineer roles silently in background...",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789464317215-75bh9",
+      "timestamp": "2026-09-15T09:25:17.215Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789464015667-e06td",
+      "timestamp": "2026-09-15T09:20:15.667Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
       "id": "audit-1789463719879-rpy4q",
       "timestamp": "2026-09-15T09:15:19.879Z",
       "agent": "EmailMonitor",
@@ -51589,42 +51631,6 @@
       "timestamp": "2026-08-11T05:56:13.122Z",
       "type": "job",
       "message": "Updated job status for Software Developer (Cloud Apps): applied"
-    },
-    {
-      "id": "log-1786427772878-vm4m",
-      "timestamp": "2026-08-11T05:56:12.878Z",
-      "type": "job",
-      "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427772707-wj1q",
-      "timestamp": "2026-08-11T05:56:12.707Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Software Developer (Cloud Apps) at Atlassian India"
-    },
-    {
-      "id": "log-1786427772468-79je",
-      "timestamp": "2026-08-11T05:56:12.468Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [Naukri] for: \"Software Developer (Cloud Apps)\" in Chennai / Hyderabad..."
-    },
-    {
-      "id": "log-1786427772335-tlkd",
-      "timestamp": "2026-08-11T05:56:12.335Z",
-      "type": "job",
-      "message": "Updated job status for Full Stack Engineer - CRM Suite: applied"
-    },
-    {
-      "id": "log-1786427772074-03dx",
-      "timestamp": "2026-08-11T05:56:12.074Z",
-      "type": "job",
-      "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427771945-2036",
-      "timestamp": "2026-08-11T05:56:11.945Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Full Stack Engineer - CRM Suite at Swiggy Tech"
     }
   ]
 }

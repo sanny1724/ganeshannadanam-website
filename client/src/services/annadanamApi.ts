@@ -30,36 +30,41 @@ export const annadanamApi = {
       if (options.userLng) params.userLng = options.userLng.toString();
       if (options.includeExpired) params.includeExpired = 'true';
 
-      const response = await axios.get(API_BASE, { params, timeout: 5000 });
-      if (response.data && response.data.data) {
+      const response = await axios.get(API_BASE, { params, timeout: 4000 });
+      // Verify response is JSON with an array in data
+      if (response && response.data && typeof response.data === 'object' && Array.isArray(response.data.data)) {
+        // Sync any server items into local storage
+        response.data.data.forEach((item: Annadanam) => this.saveToLocalCache(item));
         return response.data.data;
       }
-      return [];
+      return this.getLocalFiltered(options);
     } catch (err) {
-      console.warn('Backend API unreachable or timed out, using local fallback:', err);
+      console.warn('Backend API unreachable or static mode, using local storage:', err);
       return this.getLocalFiltered(options);
     }
   },
 
   async create(data: Omit<Annadanam, 'id' | 'createdAt'>): Promise<Annadanam> {
+    const newRecord: Annadanam = {
+      ...data,
+      id: `anna-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+      createdAt: new Date().toISOString()
+    };
+
+    // Always immediately save to local cache so user never loses their submission
+    this.saveToLocalCache(newRecord);
+
     try {
-      const response = await axios.post(API_BASE, data, { timeout: 6000 });
-      if (response.data && response.data.data) {
-        // Also cache locally
+      const response = await axios.post(API_BASE, data, { timeout: 5000 });
+      if (response && response.data && typeof response.data === 'object' && response.data.data) {
         this.saveToLocalCache(response.data.data);
         return response.data.data;
       }
-      throw new Error(response.data?.message || 'Failed to create record');
     } catch (err: any) {
-      console.warn('Backend offline, saving locally in browser storage');
-      const newRecord: Annadanam = {
-        ...data,
-        id: `anna-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
-        createdAt: new Date().toISOString()
-      };
-      this.saveToLocalCache(newRecord);
-      return newRecord;
+      console.warn('Backend server offline, saved locally to device storage');
     }
+
+    return newRecord;
   },
 
   async update(id: string, updates: Partial<Annadanam>): Promise<Annadanam | null> {
@@ -161,7 +166,7 @@ export const annadanamApi = {
       try {
         const [year, month, day] = item.date.split('-').map(Number);
         let [startH, startM] = [12, 0];
-        let [endH, endM] = [15, 0];
+        let [endH, endM] = [15, 30];
 
         const parseTime = (t: string) => {
           const isPM = t.toUpperCase().includes('PM');
@@ -173,13 +178,15 @@ export const annadanamApi = {
           return [hours, m || 0];
         };
 
-        [startH, startM] = parseTime(item.startTime);
-        [endH, endM] = parseTime(item.endTime);
+        if (item.startTime) [startH, startM] = parseTime(item.startTime);
+        if (item.endTime) [endH, endM] = parseTime(item.endTime);
 
         const startDt = new Date(year, month - 1, day, startH, startM);
         const endDt = new Date(year, month - 1, day, endH, endM);
+        // 4 hour grace period after event ends
+        const graceEndDt = new Date(endDt.getTime() + 4 * 60 * 60 * 1000);
 
-        isExpired = now.getTime() > endDt.getTime();
+        isExpired = now.getTime() > graceEndDt.getTime();
         isServingNow = now.getTime() >= startDt.getTime() && now.getTime() <= endDt.getTime();
       } catch (e) {}
 

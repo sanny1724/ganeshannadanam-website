@@ -12,13 +12,40 @@ interface GivePageProps {
 const COMMON_CITIES = ['Hyderabad', 'Secunderabad', 'Bengaluru', 'Mumbai', 'Visakhapatnam', 'Vijayawada'];
 const FOOD_OPTIONS = ['Lunch Annadanam', 'Mahaprasadam Meals', 'Breakfast / Tiffin', 'Dinner Prasadam', 'Prasadam / Sweets'];
 
+const getTodayStr = () => {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+const getTomorrowStr = () => {
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+const formatDateShort = (dateStr: string) => {
+  try {
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const dateObj = new Date(y, m - 1, d);
+    return dateObj.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
+  } catch (e) {
+    return dateStr;
+  }
+};
+
 export const GivePage: React.FC<GivePageProps> = ({ onNavigate }) => {
   const [committeeName, setCommitteeName] = useState('');
   const [city, setCity] = useState('Hyderabad');
   const [customCity, setCustomCity] = useState('');
   const [area, setArea] = useState('');
   const [address, setAddress] = useState('');
-  const [date, setDate] = useState('2026-09-15');
+  const [date, setDate] = useState(getTodayStr());
   const [startTime, setStartTime] = useState('12:00 PM');
   const [endTime, setEndTime] = useState('03:30 PM');
   const [foodType, setFoodType] = useState('Lunch Annadanam');
@@ -340,25 +367,25 @@ export const GivePage: React.FC<GivePageProps> = ({ onNavigate }) => {
               <div className="flex gap-2 mt-1.5">
                 <button
                   type="button"
-                  onClick={() => setDate('2026-09-15')}
+                  onClick={() => setDate(getTodayStr())}
                   className={`text-[11px] font-bold px-2 py-0.5 rounded-md border ${
-                    date === '2026-09-15'
+                    date === getTodayStr()
                       ? 'bg-amber-600 text-white border-amber-600'
                       : 'bg-stone-50 text-stone-600 border-stone-200'
                   }`}
                 >
-                  Today (15 Sep)
+                  Today ({formatDateShort(getTodayStr())})
                 </button>
                 <button
                   type="button"
-                  onClick={() => setDate('2026-09-16')}
+                  onClick={() => setDate(getTomorrowStr())}
                   className={`text-[11px] font-bold px-2 py-0.5 rounded-md border ${
-                    date === '2026-09-16'
+                    date === getTomorrowStr()
                       ? 'bg-amber-600 text-white border-amber-600'
                       : 'bg-stone-50 text-stone-600 border-stone-200'
                   }`}
                 >
-                  Tomorrow (16 Sep)
+                  Tomorrow ({formatDateShort(getTomorrowStr())})
                 </button>
               </div>
             </div>

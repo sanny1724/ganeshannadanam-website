@@ -25,16 +25,43 @@ interface TakePageProps {
 
 const QUICK_AREAS = ['All', 'Kukatpally', 'Balapur', 'Ameerpet', 'Madhapur', 'Khairatabad', 'Secunderabad', 'Dilsukhnagar'];
 
+const getTodayStr = () => {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+const getTomorrowStr = () => {
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+const formatDateShort = (dateStr: string) => {
+  try {
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const dateObj = new Date(y, m - 1, d);
+    return dateObj.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
+  } catch (e) {
+    return dateStr;
+  }
+};
+
 export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
   const [items, setItems] = useState<Annadanam[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [viewMode, setViewMode] = useState<ViewMode>('list');
 
-  // Search & Filter state
+  // Search & Filter state - default to 'all' so devotees and users see all added events immediately
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedArea, setSelectedArea] = useState<string>('All');
-  const [dateSelection, setDateSelection] = useState<'today' | 'tomorrow' | 'all' | 'custom'>('today');
-  const [customDate, setCustomDate] = useState<string>('2026-09-15');
+  const [dateSelection, setDateSelection] = useState<'all' | 'today' | 'tomorrow' | 'custom'>('all');
+  const [customDate, setCustomDate] = useState<string>(getTodayStr());
   const [includeExpired, setIncludeExpired] = useState<boolean>(false);
 
   // User Geolocation
@@ -45,8 +72,8 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
   // Effective date to filter
   const activeDateString = useMemo(() => {
     if (dateSelection === 'all') return 'All';
-    if (dateSelection === 'today') return '2026-09-15';
-    if (dateSelection === 'tomorrow') return '2026-09-16';
+    if (dateSelection === 'today') return getTodayStr();
+    if (dateSelection === 'tomorrow') return getTomorrowStr();
     return customDate;
   }, [dateSelection, customDate]);
 
@@ -254,6 +281,21 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
         </div>
 
         <div className="grid grid-cols-4 gap-1.5">
+          {/* All Dates */}
+          <button
+            onClick={() => setDateSelection('all')}
+            className={`py-2 px-1 rounded-xl font-extrabold text-[11px] sm:text-xs text-center transition-all cursor-pointer border ${
+              dateSelection === 'all'
+                ? 'bg-orange-600 border-orange-600 text-white shadow-xs'
+                : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
+            }`}
+          >
+            <div>All Dates</div>
+            <div className={`text-[9px] font-medium ${dateSelection === 'all' ? 'text-orange-200' : 'text-stone-400'}`}>
+              Festival
+            </div>
+          </button>
+
           {/* Today */}
           <button
             onClick={() => setDateSelection('today')}
@@ -265,7 +307,7 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
           >
             <div>Today</div>
             <div className={`text-[9px] font-medium ${dateSelection === 'today' ? 'text-orange-200' : 'text-stone-400'}`}>
-              15 Sep
+              {formatDateShort(getTodayStr())}
             </div>
           </button>
 
@@ -280,22 +322,7 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
           >
             <div>Tomorrow</div>
             <div className={`text-[9px] font-medium ${dateSelection === 'tomorrow' ? 'text-orange-200' : 'text-stone-400'}`}>
-              16 Sep
-            </div>
-          </button>
-
-          {/* All Dates */}
-          <button
-            onClick={() => setDateSelection('all')}
-            className={`py-2 px-1 rounded-xl font-extrabold text-[11px] sm:text-xs text-center transition-all cursor-pointer border ${
-              dateSelection === 'all'
-                ? 'bg-orange-600 border-orange-600 text-white shadow-xs'
-                : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
-            }`}
-          >
-            <div>All Dates</div>
-            <div className={`text-[9px] font-medium ${dateSelection === 'all' ? 'text-orange-200' : 'text-stone-400'}`}>
-              Festival
+              {formatDateShort(getTomorrowStr())}
             </div>
           </button>
 
@@ -359,22 +386,31 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
           <p className="text-xs font-bold">Loading Annadanams...</p>
         </div>
       ) : items.length === 0 ? (
-        <div className="bg-white rounded-2xl border border-dashed border-amber-300 p-6 text-center space-y-2.5">
+        <div className="bg-white rounded-2xl border border-dashed border-amber-300 p-6 text-center space-y-3">
           <div className="text-3xl">🍚</div>
           <h3 className="text-sm font-bold text-stone-800">No active Annadanam found</h3>
           <p className="text-xs text-stone-500 max-w-xs mx-auto">
-            Try choosing another area or switching to Tomorrow.
+            Try resetting filters or checking all festival dates.
           </p>
-          <button
-            onClick={() => {
-              setSelectedArea('All');
-              setSearchQuery('');
-              setDateSelection('today');
-            }}
-            className="text-xs font-bold text-orange-600 underline cursor-pointer"
-          >
-            Reset Filters
-          </button>
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            <button
+              onClick={() => {
+                setSelectedArea('All');
+                setSearchQuery('');
+                setDateSelection('all');
+                setIncludeExpired(true);
+              }}
+              className="text-xs font-bold bg-orange-600 text-white px-3 py-1.5 rounded-xl cursor-pointer hover:bg-orange-700 transition-all shadow-xs"
+            >
+              Show All Listings
+            </button>
+            <button
+              onClick={() => onNavigate('give')}
+              className="text-xs font-bold bg-stone-100 text-stone-800 px-3 py-1.5 rounded-xl cursor-pointer hover:bg-stone-200 transition-all"
+            >
+              ➕ Add Annadanam Details
+            </button>
+          </div>
         </div>
       ) : viewMode === 'list' ? (
         <div className="space-y-3">
