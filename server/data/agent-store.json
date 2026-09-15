@@ -225,9 +225,9 @@
       "platform": "Naukri",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 56,
+      "matchScore": 61,
       "matchDetails": {
-        "match_score": 56,
+        "match_score": 61,
         "matched_skills": [
           "Python",
           "React",
@@ -247,7 +247,7 @@
         "recommendation": "LOW_PRIORITY"
       },
       "jobDescription": "Position: Full Stack Engineer at Infinity Learn\nLocation: Hyderabad / Bengaluru\nPlatform Source: Naukri\nCompensation: ₹20-25 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using AI Agents, Python, React.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in AI Agents, Python, React, LLMs, Node.js.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-09-15T09:10:44.842Z",
+      "dateDiscovered": "2026-09-15T10:00:00.237Z",
       "notes": "Compensation: ₹20-25 LPA. Discovered via Naukri Job Discovery Agent."
     },
     {
@@ -293,9 +293,9 @@
       "platform": "Indeed",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 78,
+      "matchScore": 83,
       "matchDetails": {
-        "match_score": 78,
+        "match_score": 83,
         "matched_skills": [
           "TypeScript",
           "Node.js",
@@ -315,7 +315,7 @@
         "recommendation": "MEDIUM_PRIORITY"
       },
       "jobDescription": "Position: React & Node.js Developer at Zepto\nLocation: Bengaluru / Mumbai\nPlatform Source: Indeed\nCompensation: ₹18-24 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using TypeScript, Node.js, React.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in TypeScript, Node.js, React, PostgreSQL.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-09-15T08:33:54.573Z",
+      "dateDiscovered": "2026-09-15T09:45:00.217Z",
       "notes": "Compensation: ₹18-24 LPA. Discovered via Indeed Job Discovery Agent."
     },
     {
@@ -428,9 +428,9 @@
       "platform": "LinkedIn",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 52,
+      "matchScore": 55,
       "matchDetails": {
-        "match_score": 52,
+        "match_score": 55,
         "matched_skills": [
           "Python",
           "React",
@@ -447,10 +447,10 @@
         "weaknesses": [
           "Requires familiarity with AI Agents, LLMs"
         ],
-        "recommendation": "REJECT"
+        "recommendation": "LOW_PRIORITY"
       },
       "jobDescription": "Position: Software Engineer at Infinity Learn\nLocation: Hyderabad / Bengaluru\nPlatform Source: LinkedIn\nCompensation: ₹20-25 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using AI Agents, Python, React.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in AI Agents, Python, React, LLMs, Node.js.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-09-15T09:10:26.438Z",
+      "dateDiscovered": "2026-09-15T09:45:00.172Z",
       "notes": "Compensation: ₹20-25 LPA. Discovered via LinkedIn Job Discovery Agent."
     },
     {
@@ -736,9 +736,9 @@
       "platform": "LinkedIn",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 60,
+      "matchScore": 69,
       "matchDetails": {
-        "match_score": 60,
+        "match_score": 69,
         "matched_skills": [
           "Java",
           "TypeScript",
@@ -757,7 +757,7 @@
         "recommendation": "LOW_PRIORITY"
       },
       "jobDescription": "Position: Software Engineer at PhonePe\nLocation: Bengaluru / Remote\nPlatform Source: LinkedIn\nCompensation: ₹20-28 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using Java, TypeScript, Distributed Systems.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in Java, TypeScript, Distributed Systems, PostgreSQL.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-08-11T09:45:00.650Z",
+      "dateDiscovered": "2026-09-15T10:00:00.338Z",
       "notes": "Compensation: ₹20-28 LPA. Discovered via LinkedIn Job Discovery Agent."
     },
     {
@@ -970,9 +970,9 @@
       "platform": "Indeed",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 58,
+      "matchScore": 56,
       "matchDetails": {
-        "match_score": 58,
+        "match_score": 56,
         "matched_skills": [
           "Python",
           "React",
@@ -992,7 +992,7 @@
         "recommendation": "LOW_PRIORITY"
       },
       "jobDescription": "Position: React & Node.js Developer at Infinity Learn\nLocation: Hyderabad / Bengaluru\nPlatform Source: Indeed\nCompensation: ₹20-25 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using AI Agents, Python, React.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in AI Agents, Python, React, LLMs, Node.js.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-08-11T10:15:00.643Z",
+      "dateDiscovered": "2026-09-15T10:00:00.443Z",
       "notes": "Compensation: ₹20-25 LPA. Discovered via Indeed Job Discovery Agent."
     },
     {
@@ -1104,9 +1104,9 @@
       "platform": "Naukri",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 65,
+      "matchScore": 73,
       "matchDetails": {
-        "match_score": 65,
+        "match_score": 73,
         "matched_skills": [
           "TypeScript",
           "React",
@@ -1123,10 +1123,10 @@
         "weaknesses": [
           "Requires familiarity with Redis"
         ],
-        "recommendation": "LOW_PRIORITY"
+        "recommendation": "MEDIUM_PRIORITY"
       },
       "jobDescription": "Position: Full Stack Engineer at Razorpay\nLocation: Bengaluru / Remote\nPlatform Source: Naukri\nCompensation: ₹18-26 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using TypeScript, React, Node.js.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in TypeScript, React, Node.js, PostgreSQL, Redis.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-09-12T08:00:00.295Z",
+      "dateDiscovered": "2026-09-15T09:45:00.126Z",
       "notes": "Compensation: ₹18-26 LPA. Discovered via Naukri Job Discovery Agent."
     },
     {
@@ -3278,6 +3278,30 @@
     }
   ],
   "emailAlerts": [
+    {
+      "messageId": "<58661863.2671638.1789464861351@lva2-app66711.prod.linkedin.com>",
+      "sender": "\"Narendra Babu Kommuri via LinkedIn\" <newsletters-noreply@linkedin.com>",
+      "senderName": "Narendra Babu Kommuri via LinkedIn",
+      "subject": "What Should a Final-Year Student Actually Learn Before Graduation?",
+      "date": "2026-09-15T09:34:21.000Z",
+      "snippet": "AI-Ready Graduates By Narendra Babu Kommuri By Narendra Babu Kommuri Read this article on LinkedIn to join the conversation Read on LinkedIn h",
+      "body": "AI-Ready Graduates\n\nBy Narendra Babu Kommuri\n\n\nBy Narendra Babu Kommuri\n\n    \n    \n    Read this article on LinkedIn to join the conversation\nRead on LinkedIn\nhttps://www.linkedin.com/comm/pulse/what-should-final-year-student-actually-learn-before-kommuri-uivbf?lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_02%3BuYa6UGa3QaaF8L%2BXEv%2Fwjw%3D%3D&midToken=AQGw1asAujYtKA&midSig=1tSSeCV4au5ss1&trk=eml-email_series_follow_newsletter_02-null-0-read_more_banner_cta_&trkEmail=eml-email_series_follow_newsletter_02-null-0-read_more_banner_cta_-null-kdwi9n~mu2h68ur~5c-null-null&eid=kdwi9n-mu2h68ur-5c\n  \nFinal year can be confusing. Students are often told to learn more skills, complete certifications, prepare for placements, improve communication, learn AI, build projects and get internships. But with limited time left before graduation, an important question is: What should I actually focus on? The answer isn't another long list of technologies. A final-year student needs a career-ready foundation. Here are six areas I believe students should focus on before entering the workplace. 1. 🎯 Know Your Career Direction You don't need to have your entire career figured out. But you should have an idea of the kind of work you want to explore. Ask yourself: What type of problems do I enjoy solving? What roles interest me? Which industries attract me? What skills do those roles require? What are employers asking for in current job descriptions? Instead of saying: \"I'm a graduate looking for a job.\" Try to reach: \"I'm preparing for roles in business analysis, and I'm building skills in Excel, data analysis, AI tools and communication.\" That is a much stronger starting point. 2. ✦ Learn to Work With AI You don't have to become an AI engineer. But you should understand how AI can support the work you want to do. Learn how to: Research with AI Write and improve content Analyze information Summarize documents Generate ideas Automate repetitive tasks Work with AI tools relevant to your domain Verify AI-generated information More importantly, learn when not to trust AI. AI fluency is not just knowing how to prompt. It's knowing how to use, question and validate AI output. 3. 🛠️ Build Practical Skills A resume full of courses is not the same as demonstrating capability. Before graduation, try to have something you can actually show. For example: Finance student → Financial analysis project Marketing student → Digital marketing campaign or customer analysis Computer Science student → Application, automation or software project Business student → Business case study or market analysis The project doesn't have to be huge. It needs to demonstrate: I learned something → I applied it → I produced something. 4. 💬 Improve Communication This is one of the most underestimated career skills. You should be able to: Introduce yourself professionally Explain your project clearly Write a professional email Present an idea Participate in a meeting Ask good questions Explain a problem and your solution A student who knows something but cannot explain it clearly may struggle to demonstrate their capability. Knowledge creates potential. Communication makes it visible. 5. 🌍 Understand the Workplace College and the workplace are different environments. Before graduation, students should start understanding: How teams work How managers work with employees How projects are delivered How businesses make money What KPIs are How meetings and professional communication work What employers actually expect from entry-level employees This is where internships, projects, industry interactions, alumni conversations and professional communities can make a big difference. 6. 🚀 Build Your Career Presence Your career shouldn't begin on graduation day. Start building your professional presence before then. Have: A clear resume A professional LinkedIn profile A portfolio or project collection A basic understanding of your target roles A network of professionals, alumni and mentors And most importantly: Evidence of what you can do. Your digital presence should gradually answer one simple question: \"Why should someone consider me for this role?\" The Final-Year Readiness Checklist Before graduation, a student should ideally be able to say: ☑ I know which career directions I'm exploring. ☑ I understand the skills required for my target roles. ☑ I can use AI responsibly in my area of interest. ☑ I have completed projects I can demonstrate. ☑ I can communicate my ideas and work clearly. ☑ I understand basic workplace expectations. ☑ I have a professional resume and LinkedIn profile. ☑ I have started building a professional network. You don't need to be perfect in all eight. But you should be actively working toward them. The Bigger Picture Graduation is not the finish line. It's the transition from student to professional. The goal of final year shouldn't simply be: \"How do I get placed?\" It should also be: \"How do I become ready to contribute when I get there?\" Because getting the first opportunity is important. But being prepared to make the most of that opportunity is what can shape the next stage of your career. Degree → Direction → Skills → AI Fluency → Experience → Communication → Career That's the foundation of becoming an AI-Ready Graduate. A question for final-year students: What is the one skill you most want to build before graduation? I'd love to hear your perspective. AI-Ready Graduates Skills for Today. Opportunities for Tomorrow.\nKeep reading on LinkedIn\nhttps://www.linkedin.com/comm/pulse/what-should-final-year-student-actually-learn-before-kommuri-uivbf?lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_02%3BuYa6UGa3QaaF8L%2BXEv%2Fwjw%3D%3D&midToken=AQGw1asAujYtKA&midSig=1tSSeCV4au5ss1&trk=eml-email_series_follow_newsletter_02-newsletter_content_preview_text-0-readmore_button_&trkEmail=eml-email_series_follow_newsletter_02-newsletter_content_preview_text-0-readmore_button_-null-kdwi9n~mu2h68ur~5c-null-null&eid=kdwi9n-mu2h68ur-5c\n  \n      \n\n----------------------------------------\n\nThis email was intended for Banappagari Sannith Reddy (B.Tech AI & ML | Infosys Intern |Content Creator|  VBYLD 2026  | Amazon ML School ’25 |Ex-Intern @viswam.AI Java, Python, C | Software Development | AI Enthusiast | Hackathon Winner | DSA | Problem Solver | Tutor)\nLearn why we included this: https://www.linkedin.com/help/linkedin/answer/4788?lang=en&lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_02%3BuYa6UGa3QaaF8L%2BXEv%2Fwjw%3D%3D&midToken=AQGw1asAujYtKA&midSig=1tSSeCV4au5ss1&trk=eml-email_series_follow_newsletter_02-SecurityHelp-0-textfooterglimmer&trkEmail=eml-email_series_follow_newsletter_02-SecurityHelp-0-textfooterglimmer-null-kdwi9n~mu2h68ur~5c-null-null&eid=kdwi9n-mu2h68ur-5c\nYou are receiving LinkedIn notification emails. Others can see that you are a subscriber.\n\n\nUnsubscribe: https://www.linkedin.com/series-notifications/?action=unsubscribe&memberToken=ADoAAEl5IXsB72kup4JXg-acg4CsTgxBf-R9S8A&newsletterId=7502779321623851008&newsletterTitle=AI-Ready Graduates&lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_02%3BuYa6UGa3QaaF8L%2BXEv%2Fwjw%3D%3D&midToken=AQGw1asAujYtKA&midSig=1tSSeCV4au5ss1&ek=email_series_follow_newsletter_02&e=kdwi9n-mu2h68ur-5c&eid=kdwi9n-mu2h68ur-5c&m=unsubscribe&ts=footerGlimmer&li=0&t=plh    ·  Help: https://www.linkedin.com/help/linkedin/answer/67?lang=en&lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_02%3BuYa6UGa3QaaF8L%2BXEv%2Fwjw%3D%3D&midToken=AQGw1asAujYtKA&midSig=1tSSeCV4au5ss1&trk=eml-email_series_follow_newsletter_02-help-0-textfooterglimmer&trkEmail=eml-email_series_follow_newsletter_02-help-0-textfooterglimmer-null-kdwi9n~mu2h68ur~5c-null-null&eid=kdwi9n-mu2h68ur-5c\n\n© 2026 LinkedIn Corporation, 1zwnj000 West Maude Avenue, Sunnyvale, CA 94085.\nLinkedIn and the LinkedIn logo are registered trademarks of LinkedIn.",
+      "category": "OTHER",
+      "urgency": "low",
+      "actionClassification": "NO_ACTION",
+      "isGenuine": false,
+      "spamScore": 80,
+      "triageReason": "Standard newsletter or marketing message.",
+      "extractedInfo": {
+        "keyPoints": [
+          "Standard notification"
+        ],
+        "suggestedAction": "Read when convenient."
+      },
+      "isRead": false,
+      "isNotified": false,
+      "id": "email-1789465216668-1je3a"
+    },
     {
       "messageId": "<010101a0a447b44e-5dd9c082-8c50-4c27-aae3-1f9d026d4914-000000@us-west-2.amazonses.com>",
       "sender": "\"Vercel\" <notifications@vercel.com>",
@@ -48392,6 +48416,113 @@
   },
   "logs": [
     {
+      "id": "audit-1789466716579-vmpdm",
+      "timestamp": "2026-09-15T10:05:16.579Z",
+      "agent": "EmailMonitor",
+      "action": "IMAP connection/scan failed: read ECONNRESET",
+      "result": "FAILED",
+      "error": "read ECONNRESET",
+      "details": null
+    },
+    {
+      "id": "audit-1789466401445-reicb",
+      "timestamp": "2026-09-15T10:00:01.445Z",
+      "agent": "notification",
+      "action": "Desktop notification delivered: \"🤖 Autonomous Agent Applied (3 Jobs)\"",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789466400543-9bz4w",
+      "timestamp": "2026-09-15T10:00:00.543Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Discovered & normalized 3 deduplicated opportunities.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789466400129-hwig1",
+      "timestamp": "2026-09-15T10:00:00.129Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Scouting [Naukri, LinkedIn, Indeed, Glassdoor] for \"Full Stack Engineer, Software Engineer, React & Node.js Developer, AI / Web Application Developer\" in Hyderabad / Bengaluru / Remote",
+      "result": "RUNNING"
+    },
+    {
+      "id": "audit-1789466400017-sfp97",
+      "timestamp": "2026-09-15T10:00:00.017Z",
+      "agent": "job",
+      "action": "[Autonomous Daemon] Scanning for new software engineer roles silently in background...",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789466116272-mss9p",
+      "timestamp": "2026-09-15T09:55:16.272Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789465814582-mpgsx",
+      "timestamp": "2026-09-15T09:50:14.582Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789465642609-xm34c",
+      "timestamp": "2026-09-15T09:47:22.609Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789465501100-b9l4v",
+      "timestamp": "2026-09-15T09:45:01.100Z",
+      "agent": "notification",
+      "action": "Desktop notification delivered: \"🤖 Autonomous Agent Applied (3 Jobs)\"",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789465500261-4m24k",
+      "timestamp": "2026-09-15T09:45:00.261Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Discovered & normalized 3 deduplicated opportunities.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789465500072-vwo0s",
+      "timestamp": "2026-09-15T09:45:00.072Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Scouting [Naukri, LinkedIn, Indeed, Glassdoor] for \"Full Stack Engineer, Software Engineer, React & Node.js Developer, AI / Web Application Developer\" in Hyderabad / Bengaluru / Remote",
+      "result": "RUNNING"
+    },
+    {
+      "id": "audit-1789465500016-845ad",
+      "timestamp": "2026-09-15T09:45:00.016Z",
+      "agent": "job",
+      "action": "[Autonomous Daemon] Scanning for new software engineer roles silently in background...",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789465217189-jogro",
+      "timestamp": "2026-09-15T09:40:17.189Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 1 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789464928003-ehlx3",
+      "timestamp": "2026-09-15T09:35:28.003Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789464618673-w5zdq",
+      "timestamp": "2026-09-15T09:30:18.673Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
       "id": "audit-1789464601286-vgqg3",
       "timestamp": "2026-09-15T09:30:01.286Z",
       "agent": "notification",
@@ -51541,96 +51672,6 @@
       "timestamp": "2026-08-11T05:56:15.770Z",
       "type": "job",
       "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427775679-3qnb",
-      "timestamp": "2026-08-11T05:56:15.679Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Software Engineer - Embedded & Cloud at Stripe India"
-    },
-    {
-      "id": "log-1786427775451-cwal",
-      "timestamp": "2026-08-11T05:56:15.451Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [Indeed] for: \"Software Engineer - Embedded & Cloud\" in Hyderabad..."
-    },
-    {
-      "id": "log-1786427775343-b0zk",
-      "timestamp": "2026-08-11T05:56:15.343Z",
-      "type": "job",
-      "message": "Updated job status for Software Engineer - Workflow Automation: applied"
-    },
-    {
-      "id": "log-1786427775100-mkkb",
-      "timestamp": "2026-08-11T05:56:15.100Z",
-      "type": "job",
-      "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427774992-9a0f",
-      "timestamp": "2026-08-11T05:56:14.992Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Software Engineer - Workflow Automation at Zomato Engineering"
-    },
-    {
-      "id": "log-1786427774749-tzez",
-      "timestamp": "2026-08-11T05:56:14.749Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [Naukri] for: \"Software Engineer - Workflow Automation\" in Hyderabad..."
-    },
-    {
-      "id": "log-1786427774629-9r6q",
-      "timestamp": "2026-08-11T05:56:14.629Z",
-      "type": "job",
-      "message": "Updated job status for Associate Software Engineer: applied"
-    },
-    {
-      "id": "log-1786427774395-vciz",
-      "timestamp": "2026-08-11T05:56:14.395Z",
-      "type": "job",
-      "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427774281-4ze1",
-      "timestamp": "2026-08-11T05:56:14.281Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Associate Software Engineer at Swiggy Tech"
-    },
-    {
-      "id": "log-1786427774048-a8v8",
-      "timestamp": "2026-08-11T05:56:14.048Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [Glassdoor] for: \"Associate Software Engineer\" in Hyderabad..."
-    },
-    {
-      "id": "log-1786427773916-cvfr",
-      "timestamp": "2026-08-11T05:56:13.916Z",
-      "type": "job",
-      "message": "Updated job status for Software Development Engineer - Cloud: applied"
-    },
-    {
-      "id": "log-1786427773634-1ci9",
-      "timestamp": "2026-08-11T05:56:13.634Z",
-      "type": "job",
-      "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427773519-qrcv",
-      "timestamp": "2026-08-11T05:56:13.519Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Software Development Engineer - Cloud at Atlassian India"
-    },
-    {
-      "id": "log-1786427773246-y1pm",
-      "timestamp": "2026-08-11T05:56:13.246Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [LinkedIn] for: \"Software Development Engineer - Cloud\" in Hyderabad / Bengaluru..."
-    },
-    {
-      "id": "log-1786427773122-h55j",
-      "timestamp": "2026-08-11T05:56:13.122Z",
-      "type": "job",
-      "message": "Updated job status for Software Developer (Cloud Apps): applied"
     }
   ]
 }
