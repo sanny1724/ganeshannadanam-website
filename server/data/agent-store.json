@@ -183,6 +183,40 @@
   },
   "jobs": [
     {
+      "id": "4366880e0de9ea58",
+      "jobTitle": "Full Stack Engineer",
+      "company": "Infinity Learn",
+      "location": "Hyderabad / Bengaluru",
+      "url": "https://www.naukri.com/infinity-learn-jobs-in-hyderabad",
+      "platform": "Naukri",
+      "status": "DISCOVERED",
+      "applicationMode": "ASSISTED_APPLY",
+      "matchScore": 59,
+      "matchDetails": {
+        "match_score": 59,
+        "matched_skills": [
+          "Python",
+          "React",
+          "Node.js"
+        ],
+        "missing_skills": [
+          "AI Agents",
+          "LLMs"
+        ],
+        "strengths": [
+          "Strong hands-on alignment in core stack: Python, React, Node.js",
+          "Relevant educational background and project experience"
+        ],
+        "weaknesses": [
+          "Requires familiarity with AI Agents, LLMs"
+        ],
+        "recommendation": "LOW_PRIORITY"
+      },
+      "jobDescription": "Position: Full Stack Engineer at Infinity Learn\nLocation: Hyderabad / Bengaluru\nPlatform Source: Naukri\nCompensation: ₹20-25 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using AI Agents, Python, React.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in AI Agents, Python, React, LLMs, Node.js.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
+      "dateDiscovered": "2026-09-15T09:00:00.105Z",
+      "notes": "Compensation: ₹20-25 LPA. Discovered via Naukri Job Discovery Agent."
+    },
+    {
       "id": "af272e31a47475e9",
       "jobTitle": "React & Node.js Developer",
       "company": "Razorpay",
@@ -533,9 +567,9 @@
       "platform": "LinkedIn",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 58,
+      "matchScore": 51,
       "matchDetails": {
-        "match_score": 58,
+        "match_score": 51,
         "matched_skills": [
           "Python",
           "PostgreSQL",
@@ -552,10 +586,10 @@
         "weaknesses": [
           "Requires familiarity with Linux, Redis"
         ],
-        "recommendation": "LOW_PRIORITY"
+        "recommendation": "REJECT"
       },
       "jobDescription": "Position: Software Engineer at Zerodha\nLocation: Bengaluru / Remote\nPlatform Source: LinkedIn\nCompensation: ₹18-26 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using Python, PostgreSQL, Go.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in Python, PostgreSQL, Go, Linux, Redis.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-08-11T09:30:01.005Z",
+      "dateDiscovered": "2026-09-15T09:00:00.150Z",
       "notes": "Compensation: ₹18-26 LPA. Discovered via LinkedIn Job Discovery Agent."
     },
     {
@@ -1173,9 +1207,9 @@
       "platform": "Indeed",
       "status": "DISCOVERED",
       "applicationMode": "ASSISTED_APPLY",
-      "matchScore": 65,
+      "matchScore": 70,
       "matchDetails": {
-        "match_score": 65,
+        "match_score": 70,
         "matched_skills": [
           "Java",
           "TypeScript",
@@ -1191,10 +1225,10 @@
         "weaknesses": [
           "Requires familiarity with Distributed Systems"
         ],
-        "recommendation": "LOW_PRIORITY"
+        "recommendation": "MEDIUM_PRIORITY"
       },
       "jobDescription": "Position: React & Node.js Developer at PhonePe\nLocation: Bengaluru / Remote\nPlatform Source: Indeed\nCompensation: ₹20-28 LPA\n\nResponsibilities:\n- Architect, build, and deploy full-stack web applications and scalable microservices.\n- Collaborate on core systems using Java, TypeScript, Distributed Systems.\n- Write clean, testable code and maintain resilient backend endpoints.\n- Work with product teams to optimize user experience and performance.\n\nRequirements:\n- Hands-on technical skills in Java, TypeScript, Distributed Systems, PostgreSQL.\n- Strong problem-solving, data structures, and computer science fundamentals.\n- Immediate or short notice period preferred.",
-      "dateDiscovered": "2026-08-11T09:30:01.308Z",
+      "dateDiscovered": "2026-09-15T09:00:00.196Z",
       "notes": "Compensation: ₹20-28 LPA. Discovered via Indeed Job Discovery Agent."
     },
     {
@@ -3210,6 +3244,30 @@
     }
   ],
   "emailAlerts": [
+    {
+      "messageId": "<010101a0a447b44e-5dd9c082-8c50-4c27-aae3-1f9d026d4914-000000@us-west-2.amazonses.com>",
+      "sender": "\"Vercel\" <notifications@vercel.com>",
+      "senderName": "Vercel",
+      "subject": "2 new projects available to import",
+      "date": "2026-09-15T08:55:57.000Z",
+      "snippet": "VercelHello, sanny1724. 2 new projects in sanny1724/ganeshannadanam-website are available to import and deploy on Vercel. sanny1724/ganeshannadanam-website c",
+      "body": "VercelHello, sanny1724.\n\n2 new projects in sanny1724/ganeshannadanam-website are available\nto import and deploy on Vercel.\n\nsanny1724/ganeshannadanam-website\n\nclient\n\nclient · vite\n\nImport Project\n(https://vercel.com/new/import?framework=vite&path=client&project-name=client&provider=github&s=https%3A%2F%2Fgithub.com%2Fsanny1724%2Fganeshannadanam-website&import-source=import-candidates-email)\nserver\n\nserver · express\n\nImport Project\n(https://vercel.com/new/import?framework=express&path=server&project-name=server&provider=github&s=https%3A%2F%2Fgithub.com%2Fsanny1724%2Fganeshannadanam-website&import-source=import-candidates-email)\n\n-----------------------------------------------------------------\n\nIf you'd like to report an issue, reach out to Vercel Help\n(https://vercel.com/help?utm_medium=email&utm_source=notifications).\n\nManage your notification settings\n(https://vercel.com/banappagari-sannith-reddys-projects/~/settings/notifications?utm_medium=email&utm_source=notifications)\n\nCopyright © 2026 Vercel Inc.\n(https://vercel.com?utm_medium=email&utm_source=notifications)\nAll rights reserved.\n\n440 N Barranca Ave #4133 Covina, CA 91723\n\n:root { color-scheme: light dark; }\n\n.body { background-color: #ffffff; margin: 0; padding: 0; }\n.outer-table, .outer-td, .inner-td { background-color: #ffffff; }\n\n.block-row__cell { padding: 0 !important; }\n.block-row { padding: 0 !important; }\n\np {\ncolor: #171717;\nfont-family: -apple-system,BlinkMacSystemFont,'Segoe\nUI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid\nSans','Helvetica Neue',sans-serif;\nfont-size: 16px; line-height: 1.5; margin: 0 0 16px 0;\noverflow-wrap: anywhere;\n}\n.break-all { color: #171717; font-size: 16px; line-height: 1.5;\nword-break: break-all; }\nh1 {\ncolor: #171717;\nfont-family: -apple-system,BlinkMacSystemFont,'Segoe\nUI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid\nSans','Helvetica Neue',sans-serif;\nfont-size: 24px; font-weight: 600; letter-spacing: -0.02em;\nmargin: 0 0 24px 0; padding: 0;\n}\nh2 { color: #171717; font-size: 18px; font-weight: 600; margin: 0\n0 16px 0; }\nh3 { color: #171717; font-size: 16px; font-weight: 600; margin: 0\n0 12px 0; }\na { color: #0067D6; text-decoration: none; }\n.block-markdown a { color: #0067D6; text-decoration: none; }\na.block-button { color: inherit; }\nstrong { color: #171717; font-weight: 600; }\npre {\nfont-family:\nui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation\nMono','Courier New',monospace;\ncolor: #171717; background-color: #F2F2F2; border: 1px solid\n#E6E6E6;\npadding: 12px 16px; border-radius: 8px; font-size: 14px;\nmax-width: 100%; overflow: hidden; text-overflow: ellipsis;\n}\ncode.inline {\nfont-family:\nui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation\nMono','Courier New',monospace;\ncolor: #171717; font-size: 0.9em; background-color: #F2F2F2;\npadding: 2px 6px; border-radius: 4px;\n}\nul, ol { padding-left: 20px; margin: -8px 0 16px 0; }\nli { font-family: -apple-system,BlinkMacSystemFont,'Segoe\nUI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid\nSans','Helvetica Neue',sans-serif; font-size: 16px; line-height:\n1.75; color: #171717; }\n.footer-text { color: #7D7D7D; font-size: 14px; line-height: 1.5;\nmargin: 0 0 8px 0; }\n.footer-text a { color: #7D7D7D !important; text-decoration:\nunderline !important; font-weight: 400 !important; }\n.footer-link { color: #7D7D7D !important; text-decoration:\nunderline !important; font-weight: 400 !important; }\n.footer-hr { border-top-color: #E6E6E6; }\n\n.block-row.block-row--button_set-v1 { margin: 32px 0 !important;\n}\n.block-row.block-row--button_set-v1 .block-button { display:\ninline-block; box-sizing: border-box; text-decoration: none;\n-webkit-text-size-adjust: none; }\n.block-row.block-row--button_set-v1\n.block-button.block-button--solid.block-button--sm {\nbackground-color: #000000; border-radius: 8px !important; color:\n#ffffff;\nfont-family: -apple-system,BlinkMacSystemFont,'Segoe\nUI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid\nSans','Helvetica Neue',sans-serif;\nfont-size: 16px !important; font-weight: 500; line-height: 1em\n!important;\nmso-line-height-rule: exactly; padding: 12px 20px !important;\ntext-align: center; text-decoration: none;\n}\n.block-row.block-row--button_set-v1\n.block-button.block-button--outline {\nborder-style: solid; border-color: #E6E6E6; border-radius: 8px;\ncolor: #171717; font-size: 16px; font-weight: 500; padding: 14px\n20px;\n}\n.block-row.block-row--divider-v1 .block-divider { border-bottom:\n1px solid #E6E6E6; }\n.block-row.block-row--markdown-v1 .block-markdown > :first-child\n{ margin-top: 0; }\n.block-row.block-row--markdown-v1 .block-markdown > :last-child {\nmargin-bottom: 0; }\n.vercel-logo { mix-blend-mode: difference; }\n\n@media (prefers-color-scheme: dark) {\n.body, .outer-table, .outer-td, .inner-td { background-color:\n#111111 !important; }\np, .break-all, li, td { color: #ededed !important; }\nh1, h2, h3, strong { color: #ffffff !important; }\na { color: #4da3ff !important; }\ntd[bgcolor=\"#000000\"], .email-cta { background-color: #EDEDED\n!important; }\ntd[bgcolor=\"#000000\"] a, .email-cta a { color: #0A0A0A\n!important; background-color: #EDEDED !important; }\npre { color: #ededed !important; background-color: #282828\n!important; border-color: #333333 !important; }\ncode, code.inline { color: #ededed !important; background-color:\n#282828 !important; }\n.footer-text, .footer-text p { color: #7D7D7D !important; }\n.footer-text a { color: #7D7D7D !important; }\n.footer-link { color: #7D7D7D !important; }\n.footer-hr { border-top-color: #333333 !important; }\n.block-row.block-row--button_set-v1\n.block-button.block-button--solid.block-button--sm {\nbackground-color: #EDEDED; color: #0A0A0A;}\n.block-row.block-row--button_set-v1\n.block-button.block-button--outline { border-color: #333333\n!important; color: #ededed !important; }\n.block-row.block-row--divider-v1 .block-divider {\nborder-bottom-color: #333333 !important; }\n.vercel-code-block { background-color: #282828 !important; color:\n#ffffff !important; }\n.vercel-label-default { background-color: #282828 !important;\ncolor: #ededed !important; }\n.vercel-label-info { background-color: #0A2540 !important; color:\n#4da3ff !important; }\n.vercel-label-error { background-color: #3D1417 !important;\ncolor: #FF6166 !important; }\n.block-button { background-color: #EDEDED !important; color:\n#0A0A0A !important; }\n}\n\n@media only screen and (max-width: 620px) {\n.outer-td { padding: 32px 16px !important; }\n}",
+      "category": "OTHER",
+      "urgency": "low",
+      "actionClassification": "NO_ACTION",
+      "isGenuine": false,
+      "spamScore": 80,
+      "triageReason": "Standard newsletter or marketing message.",
+      "extractedInfo": {
+        "keyPoints": [
+          "Standard notification"
+        ],
+        "suggestedAction": "Read when convenient."
+      },
+      "isRead": false,
+      "isNotified": false,
+      "id": "email-1789462821842-gmrmk"
+    },
     {
       "messageId": "<t3Y-MwRYRJCncDIlpyr0Ug@geopod-ismtpd-16>",
       "sender": "\"Adda247\" <updates@info.adda247.com>",
@@ -48300,6 +48358,48 @@
   },
   "logs": [
     {
+      "id": "audit-1789463117407-u2prb",
+      "timestamp": "2026-09-15T09:05:17.407Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 0 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789462822513-1wu3f",
+      "timestamp": "2026-09-15T09:00:22.513Z",
+      "agent": "EmailMonitor",
+      "action": "Email scan completed: checked 31 unread emails, created 1 high-value alerts.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789462800769-e4j88",
+      "timestamp": "2026-09-15T09:00:00.769Z",
+      "agent": "notification",
+      "action": "Desktop notification delivered: \"🤖 Autonomous Agent Applied (3 Jobs)\"",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789462800255-9hzgb",
+      "timestamp": "2026-09-15T09:00:00.255Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Discovered & normalized 3 deduplicated opportunities.",
+      "result": "SUCCESS"
+    },
+    {
+      "id": "audit-1789462800060-z2urb",
+      "timestamp": "2026-09-15T09:00:00.060Z",
+      "agent": "JobDiscoveryAgent",
+      "action": "Scouting [Naukri, LinkedIn, Indeed, Glassdoor] for \"Full Stack Engineer, Software Engineer, React & Node.js Developer, AI / Web Application Developer\" in Hyderabad / Bengaluru / Remote",
+      "result": "RUNNING"
+    },
+    {
+      "id": "audit-1789462800015-uor9e",
+      "timestamp": "2026-09-15T09:00:00.015Z",
+      "agent": "job",
+      "action": "[Autonomous Daemon] Scanning for new software engineer roles silently in background...",
+      "result": "SUCCESS"
+    },
+    {
       "id": "audit-1789462516128-utpqf",
       "timestamp": "2026-09-15T08:55:16.128Z",
       "agent": "EmailMonitor",
@@ -51473,24 +51573,6 @@
       "timestamp": "2026-08-11T05:56:09.296Z",
       "type": "job",
       "message": "Updated job status for Full Stack Developer (React/Node.js): applied"
-    },
-    {
-      "id": "log-1786427769082-nj4y",
-      "timestamp": "2026-08-11T05:56:09.082Z",
-      "type": "job",
-      "message": "Multi-platform scan completed: Loaded 1 matching jobs into queue."
-    },
-    {
-      "id": "log-1786427768976-xla1",
-      "timestamp": "2026-08-11T05:56:08.976Z",
-      "type": "job",
-      "message": "Discovered new job opportunity: Full Stack Developer (React/Node.js) at Jio Platforms"
-    },
-    {
-      "id": "log-1786427768709-r55m",
-      "timestamp": "2026-08-11T05:56:08.709Z",
-      "type": "job",
-      "message": "Initiating multi-platform job scan on [Indeed] for: \"Full Stack Developer (React/Node.js)\" in Bengaluru..."
     }
   ]
 }

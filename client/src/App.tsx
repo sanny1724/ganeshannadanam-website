@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
+import { BottomNav } from './components/BottomNav';
 import { HomePage } from './pages/HomePage';
 import { GivePage } from './pages/GivePage';
 import { TakePage } from './pages/TakePage';
@@ -39,12 +40,15 @@ export function App() {
     <div className="min-h-screen bg-[#FFFDF9] text-stone-900 flex flex-col font-sans selection:bg-orange-500/20 selection:text-orange-950">
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
 
-      <main className="flex-1 w-full pb-12">
+      <main className="flex-1 w-full pb-20 sm:pb-8">
         {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
         {currentPage === 'give' && <GivePage onNavigate={handleNavigate} />}
         {currentPage === 'take' && <TakePage onNavigate={handleNavigate} />}
         {currentPage === 'admin' && <AdminPage onNavigate={handleNavigate} />}
       </main>
+
+      {/* Floating Bottom Navigation Bar for Mobile */}
+      <BottomNav currentPage={currentPage} onNavigate={handleNavigate} />
     </div>
   );
 }

@@ -5,14 +5,25 @@
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
 
-  body {
+  html, body {
     font-family: var(--font-sans);
     background-color: #FFFDF9;
     color: #1c1917;
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    overflow-x: hidden;
   }
+}
+
+/* Hide scrollbar for clean horizontal chip carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom devotional accent elements */
@@ -26,6 +37,11 @@
 
 .festive-border {
   border-color: #fdba74;
+}
+
+/* Mobile App Safe Padding */
+.safe-pb {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 72px);
 }
 
 /* Leaflet Map Customizations */
@@ -77,19 +93,15 @@
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #fef3c7;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #fb923c;
   border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ea580c;
 }
