@@ -33,7 +33,7 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
   // Search & Filter state
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedArea, setSelectedArea] = useState<string>('All');
-  const [dateSelection, setDateSelection] = useState<'today' | 'tomorrow' | 'custom'>('today');
+  const [dateSelection, setDateSelection] = useState<'today' | 'tomorrow' | 'all' | 'custom'>('today');
   const [customDate, setCustomDate] = useState<string>('2026-09-15');
   const [includeExpired, setIncludeExpired] = useState<boolean>(false);
 
@@ -44,6 +44,7 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
 
   // Effective date to filter
   const activeDateString = useMemo(() => {
+    if (dateSelection === 'all') return 'All';
     if (dateSelection === 'today') return '2026-09-15';
     if (dateSelection === 'tomorrow') return '2026-09-16';
     return customDate;
@@ -204,15 +205,25 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
         </button>
 
         {/* Search City / Area */}
-        <div className="relative">
-          <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="🔎 Search Area (e.g. Kukatpally, Ameerpet, Balapur)"
-            className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-300 focus:border-orange-500 text-xs sm:text-sm font-medium text-stone-900 bg-stone-50/50"
-          />
+        <div className="relative flex items-center gap-2">
+          <div className="relative flex-1">
+            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="🔎 Search Committee / Area (e.g. Youth, Kukatpally)"
+              className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-300 focus:border-orange-500 text-xs sm:text-sm font-medium text-stone-900 bg-stone-50/50"
+            />
+          </div>
+          <button
+            onClick={loadAnnadanams}
+            disabled={loading}
+            className="p-2.5 rounded-xl bg-orange-50 hover:bg-orange-100 border border-orange-200 text-orange-700 font-bold text-xs flex items-center justify-center shrink-0 cursor-pointer"
+            title="Refresh Listings (Load New Events)"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+          </button>
         </div>
 
         {/* Horizontal Smooth Scroll Area Chips */}
@@ -242,18 +253,18 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
           <span>Select Date</span>
         </div>
 
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-4 gap-1.5">
           {/* Today */}
           <button
             onClick={() => setDateSelection('today')}
-            className={`py-2 px-2 rounded-xl font-extrabold text-xs text-center transition-all cursor-pointer border ${
+            className={`py-2 px-1 rounded-xl font-extrabold text-[11px] sm:text-xs text-center transition-all cursor-pointer border ${
               dateSelection === 'today'
                 ? 'bg-orange-600 border-orange-600 text-white shadow-xs'
                 : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
             }`}
           >
             <div>Today</div>
-            <div className={`text-[10px] font-medium ${dateSelection === 'today' ? 'text-orange-200' : 'text-stone-400'}`}>
+            <div className={`text-[9px] font-medium ${dateSelection === 'today' ? 'text-orange-200' : 'text-stone-400'}`}>
               15 Sep
             </div>
           </button>
@@ -261,29 +272,44 @@ export const TakePage: React.FC<TakePageProps> = ({ onNavigate }) => {
           {/* Tomorrow */}
           <button
             onClick={() => setDateSelection('tomorrow')}
-            className={`py-2 px-2 rounded-xl font-extrabold text-xs text-center transition-all cursor-pointer border ${
+            className={`py-2 px-1 rounded-xl font-extrabold text-[11px] sm:text-xs text-center transition-all cursor-pointer border ${
               dateSelection === 'tomorrow'
                 ? 'bg-orange-600 border-orange-600 text-white shadow-xs'
                 : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
             }`}
           >
             <div>Tomorrow</div>
-            <div className={`text-[10px] font-medium ${dateSelection === 'tomorrow' ? 'text-orange-200' : 'text-stone-400'}`}>
+            <div className={`text-[9px] font-medium ${dateSelection === 'tomorrow' ? 'text-orange-200' : 'text-stone-400'}`}>
               16 Sep
+            </div>
+          </button>
+
+          {/* All Dates */}
+          <button
+            onClick={() => setDateSelection('all')}
+            className={`py-2 px-1 rounded-xl font-extrabold text-[11px] sm:text-xs text-center transition-all cursor-pointer border ${
+              dateSelection === 'all'
+                ? 'bg-orange-600 border-orange-600 text-white shadow-xs'
+                : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
+            }`}
+          >
+            <div>All Dates</div>
+            <div className={`text-[9px] font-medium ${dateSelection === 'all' ? 'text-orange-200' : 'text-stone-400'}`}>
+              Festival
             </div>
           </button>
 
           {/* Custom Date */}
           <button
             onClick={() => setDateSelection('custom')}
-            className={`py-2 px-2 rounded-xl font-extrabold text-xs text-center transition-all cursor-pointer border ${
+            className={`py-2 px-1 rounded-xl font-extrabold text-[11px] sm:text-xs text-center transition-all cursor-pointer border ${
               dateSelection === 'custom'
                 ? 'bg-orange-600 border-orange-600 text-white shadow-xs'
                 : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
             }`}
           >
-            <div>Select Date</div>
-            <div className={`text-[10px] font-medium ${dateSelection === 'custom' ? 'text-orange-200' : 'text-stone-400'}`}>
+            <div>Select</div>
+            <div className={`text-[9px] font-medium ${dateSelection === 'custom' ? 'text-orange-200' : 'text-stone-400'}`}>
               Calendar
             </div>
           </button>

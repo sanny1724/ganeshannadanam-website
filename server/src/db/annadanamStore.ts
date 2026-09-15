@@ -59,6 +59,18 @@ export class AnnadanamStore {
     return list.find((item) => item.id === id);
   }
 
+  private static saveAll(list: AnnadanamRecord[]): void {
+    const json = JSON.stringify(list, null, 2);
+    for (const p of candidatePaths) {
+      try {
+        if (!fs.existsSync(p)) {
+          fs.mkdirSync(p, { recursive: true });
+        }
+        fs.writeFileSync(path.join(p, 'annadanams.json'), json, 'utf8');
+      } catch (e) {}
+    }
+  }
+
   public static add(record: Omit<AnnadanamRecord, 'id' | 'createdAt'> & { id?: string; createdAt?: string }): AnnadanamRecord {
     this.ensureDataFile();
     const list = this.getAll();
@@ -68,8 +80,28 @@ export class AnnadanamStore {
       createdAt: record.createdAt || new Date().toISOString()
     };
     list.unshift(newRecord);
-    fs.writeFileSync(filePath, JSON.stringify(list, null, 2), 'utf8');
+    this.saveAll(list);
     return newRecord;
+  }
+
+  public static delete(id: string): boolean {
+    this.ensureDataFile();
+    const list = this.getAll();
+    const index = list.findIndex((item) => item.id === id);
+    if (index === -1) return false;
+    list.splice(index, 1);
+    this.saveAll(list);
+    return true;
+  }
+
+  public static update(id: string, updates: Partial<AnnadanamRecord>): AnnadanamRecord | null {
+    this.ensureDataFile();
+    const list = this.getAll();
+    const index = list.findIndex((item) => item.id === id);
+    if (index === -1) return null;
+    list[index] = { ...list[index], ...updates };
+    this.saveAll(list);
+    return list[index];
   }
 
   public static getCities(): string[] {

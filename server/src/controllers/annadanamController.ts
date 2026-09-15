@@ -114,22 +114,10 @@ export const getAnnadanams = async (req: Request, res: Response): Promise<void> 
       filtered = filtered.filter((item) => item.city.toLowerCase() === city.toLowerCase().trim());
     }
 
-    if (area && typeof area === 'string' && area.trim() !== '' && area.toLowerCase() !== 'all') {
-      const q = area.toLowerCase().trim();
-      filtered = filtered.filter((item) => item.area.toLowerCase().includes(q));
-    }
+    const hasSearch = search && typeof search === 'string' && search.trim() !== '';
 
-    if (date && typeof date === 'string' && date.trim() !== '' && date.toLowerCase() !== 'all') {
-      filtered = filtered.filter((item) => item.date === date.trim());
-    }
-
-    if (foodType && typeof foodType === 'string' && foodType.trim() !== '' && foodType.toLowerCase() !== 'all') {
-      const f = foodType.toLowerCase().trim();
-      filtered = filtered.filter((item) => item.foodType.toLowerCase().includes(f));
-    }
-
-    if (search && typeof search === 'string' && search.trim() !== '') {
-      const q = search.toLowerCase().trim();
+    if (hasSearch) {
+      const q = (search as string).toLowerCase().trim();
       filtered = filtered.filter(
         (item) =>
           item.committeeName.toLowerCase().includes(q) ||
@@ -138,6 +126,20 @@ export const getAnnadanams = async (req: Request, res: Response): Promise<void> 
           item.address.toLowerCase().includes(q) ||
           item.foodType.toLowerCase().includes(q)
       );
+    } else {
+      if (area && typeof area === 'string' && area.trim() !== '' && area.toLowerCase() !== 'all') {
+        const q = area.toLowerCase().trim();
+        filtered = filtered.filter((item) => item.area.toLowerCase().includes(q));
+      }
+
+      if (date && typeof date === 'string' && date.trim() !== '' && date.toLowerCase() !== 'all') {
+        filtered = filtered.filter((item) => item.date === date.trim());
+      }
+    }
+
+    if (foodType && typeof foodType === 'string' && foodType.trim() !== '' && foodType.toLowerCase() !== 'all') {
+      const f = foodType.toLowerCase().trim();
+      filtered = filtered.filter((item) => item.foodType.toLowerCase().includes(f));
     }
 
     // Sort order:

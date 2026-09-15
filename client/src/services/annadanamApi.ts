@@ -344,26 +344,28 @@ export const annadanamApi = {
       filtered = filtered.filter((i) => !i.isExpired);
     }
 
-    if (options.city && options.city !== 'All') {
-      filtered = filtered.filter((i) => i.city.toLowerCase() === options.city?.toLowerCase());
-    }
-
-    if (options.area && options.area !== 'All') {
-      filtered = filtered.filter((i) => i.area.toLowerCase().includes(options.area!.toLowerCase()));
-    }
-
-    if (options.date && options.date !== 'All') {
-      filtered = filtered.filter((i) => i.date === options.date);
-    }
-
-    if (options.search) {
-      const q = options.search.toLowerCase();
+    if (options.search && options.search.trim()) {
+      const q = options.search.toLowerCase().trim();
       filtered = filtered.filter(
         (i) =>
           i.committeeName.toLowerCase().includes(q) ||
           i.area.toLowerCase().includes(q) ||
-          i.address.toLowerCase().includes(q)
+          i.city.toLowerCase().includes(q) ||
+          i.address.toLowerCase().includes(q) ||
+          i.foodType.toLowerCase().includes(q)
       );
+    } else {
+      if (options.city && options.city !== 'All') {
+        filtered = filtered.filter((i) => i.city.toLowerCase() === options.city?.toLowerCase());
+      }
+
+      if (options.area && options.area !== 'All') {
+        filtered = filtered.filter((i) => i.area.toLowerCase().includes(options.area!.toLowerCase()));
+      }
+
+      if (options.date && options.date !== 'All') {
+        filtered = filtered.filter((i) => i.date === options.date);
+      }
     }
 
     return filtered;
